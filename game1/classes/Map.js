@@ -4,8 +4,8 @@ export default class Map {
 
         this.speed = 1.5
         this.groundSize = 350
-        this.x = -130
-        this.y = -30
+        this.x = -140
+        this.y = 160
         this.moving = false
         this.direction = 'down'
 

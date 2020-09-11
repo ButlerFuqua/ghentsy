@@ -1,7 +1,7 @@
 export default class Barrier {
     constructor(ctx) {
         this.ctx = ctx
-        this.barrierColor = 'rgba(0,255,255, .0)'
+        this.barrierColor = 'rgba(0,255,255, .5)'
         this.x
         this.y
         this.w

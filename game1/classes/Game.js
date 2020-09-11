@@ -2,10 +2,11 @@
 
 
 export default class Game {
-    constructor(Canvas, Map, Barrier, Player, w, h) {
+    constructor(Canvas, Map, Barrier, Interaction, Player, w, h) {
         this.Canvas = Canvas
         this.Map = Map
         this.Barrier = Barrier
+        this.Interaction = Interaction
         this.Player = Player
 
         this.canvas = new this.Canvas(w, h)
@@ -14,12 +15,27 @@ export default class Game {
 
         this.map1 = new this.Map(this.canvas.ctx, './images/ground.png')
 
-        this.barrier1 = new this.Barrier(this.canvas.ctx)
-
         this.player1 = new this.Player(this.canvas, './images/female_sheet.png')
+
+        this.barriers = []
+        this.interactions = []
 
 
         this.frameCount = 0
+    }
+
+    createBarriers(schemas) {
+        schemas.forEach(schema => {
+            let newBarrier = new this.Barrier(this.canvas.ctx)
+            this.barriers.push({ barrier: newBarrier, schema })
+        })
+    }
+
+    createInteractions(schemas) {
+        schemas.forEach(schema => {
+            let newInteraction = new this.Interaction(this.canvas.ctx)
+            this.interactions.push({ barrier: newInteraction, schema })
+        })
     }
 
 
@@ -34,16 +50,21 @@ export default class Game {
 
 
         // Draw barriers
-        let barriers = []
-        this.barrier1.drawBarrier(this.map1.x + 210, this.map1.y + 70, 79, 79)
-        barriers.push(this.barrier1)
-
+        this.barriers.forEach(obj => {
+            obj.barrier.drawBarrier(this.map1.x + obj.schema.x, this.map1.y + obj.schema.y, obj.schema.w, obj.schema.h)
+        })
+        // Draw interactions
+        this.interactions.forEach(obj => {
+            obj.barrier.drawBarrier(this.map1.x + obj.schema.x, this.map1.y + obj.schema.y, obj.schema.w, obj.schema.h)
+        })
 
         // Draw player
         this.player1.drawSprite(this.map1.moving, this.frameCount)
 
         //detect collisions
-        barriers.forEach(barrier => barrier.detectCollision(this.player1, this.map1))
+        this.barriers.forEach(obj => obj.barrier.detectCollision(this.player1, this.map1))
+        //detect interactions
+        this.interactions.forEach(obj => obj.barrier.detectCollision(this.player1, this.map1, window))
 
 
 
