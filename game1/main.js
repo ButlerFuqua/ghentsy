@@ -12,7 +12,7 @@ game1.createBarriers([
     { x: 210, y: 70, w: 79, h: 79 },
 ])
 game1.createInteractions([
-    { x: 410, y: 70, w: 25, h: 25 },
+    { x: 110, y: 70, w: 25, h: 25 },
 ])
 
 game1.gameLoop()

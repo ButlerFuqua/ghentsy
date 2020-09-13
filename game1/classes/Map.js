@@ -1,12 +1,13 @@
 export default class Map {
-    constructor(ctx, src) {
-        this.ctx = ctx
+    constructor(canvas, src, w, h) {
+        this.ctx = canvas.ctx
 
         this.speed = 1.5
-        this.w = 350
-        this.h = 350
-        this.x = -140
-        this.y = 160
+        this.w = w
+        this.h = h
+        this.x = (canvas.w / 2) - (this.w / 2)
+        this.y = (canvas.h / 2) - (this.h / 2)
+
         this.moving = false
         this.direction = 'down'
 
@@ -20,7 +21,8 @@ export default class Map {
     }
 
 
-    drawMap() {
+    drawMap(canvas) {
+
         this.ctx.drawImage(this.image, this.x, this.y, this.w, this.h)
     }
 
