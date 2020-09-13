@@ -9,7 +9,13 @@ export default class Canvas {
 
         this.canvas.width = w
         this.canvas.height = h
-        this.canvas.style.background = '#ccc'
+        this.canvas.setAttribute('id', 'gameCanvas')
+        this.canvas.style = `
+            background: #ccc;
+            min-width: 100vw;
+            padding: 0;
+            margin: 0;
+        `
 
     }
 
