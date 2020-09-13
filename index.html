@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#009578">
+
+    <title>Ghentsy</title>
+    <!-- <link rel="stylesheet" href="/app/src/master.css"> -->
+
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+    <!-- <link rel="apple-touch-icon" href="/images/logo192.png"> -->
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas-container>
+        <div id="canvasContainer" slot="canvas"></div>
+    </canvas-container>
+
+    <!-- <div id="canvasContainer"></div> -->
+
+
+
+    <script type="module" src="/src/components/index.js"></script>
+    <script type="module" src="/game1/main.js"></script>
+</body>
+
+</html>

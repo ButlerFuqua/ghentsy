@@ -1,4 +1,4 @@
-import GameControls from './GameControls.js'
+import GameControls from './gameController/GameControls.js'
 GameControls()
 
 export default () => {

@@ -1,3 +1,5 @@
+import DButton from './DButton.js'
+
 export default () => {
 
 
@@ -27,11 +29,6 @@ export default () => {
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        #dpad button {
-            background: rgba(0,0,0, 0.0);
-            border: 1px solid #ccc;
         }
 
     `
