@@ -2,7 +2,7 @@
 
 
 export default class Game {
-    constructor(Canvas, Map, Barrier, Interaction, Player, w, h) {
+    constructor(Canvas, Map, Barrier, Interaction, Player, w, h, sel) {
         this.Canvas = Canvas
         this.Map = Map
         this.Barrier = Barrier
@@ -10,12 +10,12 @@ export default class Game {
         this.Player = Player
 
         this.canvas = new this.Canvas(w, h)
-        this.canvas.appendCanvas('body')
+        this.canvas.appendCanvas(sel)
         this.canvas.setBackground('coral')
 
-        this.map1 = new this.Map(this.canvas.ctx, './images/ground.png')
+        this.map1 = new this.Map(this.canvas.ctx, '../game1/images/ground.png')
 
-        this.player1 = new this.Player(this.canvas, './images/female_sheet.png')
+        this.player1 = new this.Player(this.canvas, '../game1/images/female_sheet.png')
 
         this.barriers = []
         this.interactions = []
@@ -73,19 +73,19 @@ export default class Game {
         if (this.map1.moving) {
 
             if (this.map1.direction === 'up' && this.player1.playerTouchingBarrier.beforeTouch !== 'up') {
-                this.map1.moveMapDown()
+                this.map1.moveMapDown(this.player1)
             }
 
             if (this.map1.direction === "down" && this.player1.playerTouchingBarrier.beforeTouch !== 'down') {
-                this.map1.moveMapUp()
+                this.map1.moveMapUp(this.player1)
             }
 
             if (this.map1.direction === "left" && this.player1.playerTouchingBarrier.beforeTouch !== 'left') {
-                this.map1.moveMapRight()
+                this.map1.moveMapRight(this.player1)
             }
 
             if (this.map1.direction === "right" && this.player1.playerTouchingBarrier.beforeTouch !== 'right') {
-                this.map1.moveMapLeft()
+                this.map1.moveMapLeft(this.player1)
             }
 
         }
