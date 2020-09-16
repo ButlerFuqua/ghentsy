@@ -1,5 +1,4 @@
 import GameControls from './gameController/GameControls.js'
-GameControls()
 
 export default () => {
 
@@ -10,8 +9,12 @@ export default () => {
 
 
         div.container {
-            height: 100vh;
-            width: 100vw;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
 

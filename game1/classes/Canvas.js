@@ -12,7 +12,7 @@ export default class Canvas {
         this.canvas.setAttribute('id', 'gameCanvas')
         this.canvas.style = `
             background: #ccc;
-            min-width: 100vw;
+            min-height: 100%;
             padding: 0;
             margin: 0;
         `
@@ -20,7 +20,7 @@ export default class Canvas {
     }
 
     appendCanvas(selector) {
-        document.querySelector(selector).appendChild(this.canvas)
+        document.querySelector(selector).prepend(this.canvas)
     }
 
     setBackground(str) {

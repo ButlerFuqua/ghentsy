@@ -1,22 +1,28 @@
-export default () => {
+export default ({ colors }) => {
 
 
     const style = document.createElement('style')
     style.textContent = `
 
-    button {
-        background: rgba(0,0,0, 0.0);
-        border: 1px solid #ccc;
+    *{
+        box-sizing: border-box;
+    }
+
+    .container {
+        height: 5vh;
+        background: ${colors.dark1}
     }
 
     `
     const template = document.createElement('template')
     template.innerHTML = `
-           <button>d</button>
+           <div class="container">
+
+           </div>
         
     `
 
-    class DButton extends HTMLElement {
+    class BottomBar extends HTMLElement {
         constructor() {
             super()
             this.attachShadow({ mode: 'open' })
@@ -32,6 +38,6 @@ export default () => {
     }
 
 
-    window.customElements.define('d-button', DButton)
+    window.customElements.define('bottom-bar', BottomBar)
 }
 
