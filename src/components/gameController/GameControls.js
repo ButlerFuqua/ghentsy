@@ -130,6 +130,7 @@ export default ({ colors }, { map1, player1, interactions }) => {
             // Dpad devent listeners
             this.shadowRoot.querySelectorAll('#dpad button').forEach(btn => btn.addEventListener('pointerdown', this.dpadBtnDown.bind(btn)))
             this.shadowRoot.querySelectorAll('#dpad button').forEach(btn => btn.addEventListener('pointerup', this.dpadBtnUp.bind(btn)))
+            this.shadowRoot.querySelectorAll('#dpad button').forEach(btn => btn.addEventListener('pointerout', this.dpadBtnUp.bind(btn)))
 
         }
 
