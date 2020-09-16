@@ -11,7 +11,7 @@ export default class Game {
 
         this.canvas = new this.Canvas(w, h)
         this.canvas.appendCanvas(sel)
-        this.canvas.setBackground('coral')
+        this.canvas.setBackground('#333')
 
         this.map1 = new this.Map(this.canvas, '../game1/images/ground.png', 350, 350)
 

@@ -60,6 +60,16 @@ export default ({ colors }, { map1, player1, interactions }) => {
             border: none;
         }
 
+        button {
+            opacity: .2;
+
+            transition: .3s;
+        }
+
+        button.highlight {
+            opacity: 1;
+        }
+
     `
     const template = document.createElement('template')
     template.innerHTML = `
@@ -76,15 +86,15 @@ export default ({ colors }, { map1, player1, interactions }) => {
                             </button>
                         </div>
                         <div id="leftRight">
-                            <button  data-direction="left"  data-code="1">
+                            <button data-direction="left" data-code="1">
                                 <img style="transform: rotate(180deg)" src="./src/images/prime_dpad.png" />
                             </button>
-                            <button  data-direction="right"  data-code="2">
+                            <button data-direction="right" data-code="2">
                                 <img src="./src/images/prime_dpad.png" />
                             </button>
                         </div>
                         <div id="bottom">
-                            <button  data-direction="down"  data-code="0">
+                            <button data-direction="down" data-code="0">
                                 <img style="transform: rotate(180deg)" src="./src/images/secondary_dpad.png" />
                             </button>
                         </div>
@@ -103,13 +113,21 @@ export default ({ colors }, { map1, player1, interactions }) => {
             this.shadowRoot.appendChild(template.content.cloneNode(true))
         }
 
+
+
         actionBtnPressed(e) {
+            buttonPressed(this)
+
             interactions.forEach(interaction => {
                 if (interaction.instance.canInteract) interaction.instance.invokeInteraction(e)
             })
+
+            setTimeout(() => buttonNotPressed(this).bind(this), 200)
         }
 
         dpadBtnDown(e) {
+            buttonPressed(this)
+
             map1.moving = true
             const dir = this.getAttribute('data-direction').toLocaleLowerCase()
             const mc = this.getAttribute('data-code')
@@ -118,6 +136,8 @@ export default ({ colors }, { map1, player1, interactions }) => {
         }
 
         dpadBtnUp(e) {
+            buttonNotPressed(this)
+
             map1.moving = false
         }
 
@@ -137,5 +157,15 @@ export default ({ colors }, { map1, player1, interactions }) => {
     }
 
     window.customElements.define('game-controls', GameControls)
+
+
+    // FUNCTIONS ===
+
+    function buttonPressed(btn) {
+        if (!btn.classList.contains('highlight')) btn.classList.add('highlight')
+    }
+    function buttonNotPressed(btn) {
+        if (btn.classList.contains('highlight')) btn.classList.remove('highlight')
+    }
 }
 
