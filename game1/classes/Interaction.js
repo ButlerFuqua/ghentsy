@@ -8,7 +8,6 @@ export default class Interaction extends Barrier {
     }
 
     invokeInteraction(e) {
-        console.log('INTERACTING...')
         if (e && e.key === ' ' || (e.type && e.type === 'pointerdown')) {
             alert("This will be an interaction")
         }
