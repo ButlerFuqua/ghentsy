@@ -105,7 +105,6 @@ export default ({ colors }, { map1, player1, interactions }) => {
 
         actionBtnPressed(e) {
             interactions.forEach(interaction => {
-                console.log(interaction.instance.canInteract)
                 if (interaction.instance.canInteract) interaction.instance.invokeInteraction(e)
             })
         }
