@@ -1,4 +1,4 @@
-export default ({ colors }) => {
+export default ({ colors }, { map1, player1 }) => {
 
     const style = document.createElement('style')
     style.textContent = `
@@ -71,20 +71,20 @@ export default ({ colors }) => {
                 <div id="dpadContainer">
                     <div id="dpad">
                         <div id="top">
-                            <button>
+                            <button data-direction="up" data-code="3">
                                 <img src="./src/images/secondary_dpad.png" />
                             </button>
                         </div>
                         <div id="leftRight">
-                            <button>
+                            <button  data-direction="left"  data-code="1">
                                 <img style="transform: rotate(180deg)" src="./src/images/prime_dpad.png" />
                             </button>
-                            <button>
+                            <button  data-direction="right"  data-code="2">
                                 <img src="./src/images/prime_dpad.png" />
                             </button>
                         </div>
                         <div id="bottom">
-                            <button >
+                            <button  data-direction="down"  data-code="0">
                                 <img style="transform: rotate(180deg)" src="./src/images/secondary_dpad.png" />
                             </button>
                         </div>
@@ -103,7 +103,32 @@ export default ({ colors }) => {
             this.shadowRoot.appendChild(template.content.cloneNode(true))
         }
 
+        actionBtnPressed(e) {
+            console.log('Action button pressed!!', this)
+        }
+
+        dpadBtnDown(e) {
+            map1.moving = true
+            const dir = this.getAttribute('data-direction').toLocaleLowerCase()
+            const mc = this.getAttribute('data-code')
+            map1.direction = dir
+            player1.moveCode = mc
+        }
+
+        dpadBtnUp(e) {
+            map1.moving = false
+            console.log('UP: ', this.getAttribute(`data-direction`))
+            console.log(e)
+        }
+
         connectedCallback() {
+
+            // Action button event listener
+            this.shadowRoot.querySelector('#actionButtonContainer button').addEventListener('pointerdown', this.actionBtnPressed.bind(this.shadowRoot.querySelector('#actionButtonContainer button')))
+
+            // Dpad devent listeners
+            this.shadowRoot.querySelectorAll('#dpad button').forEach(btn => btn.addEventListener('pointerdown', this.dpadBtnDown.bind(btn)))
+            this.shadowRoot.querySelectorAll('#dpad button').forEach(btn => btn.addEventListener('pointerup', this.dpadBtnUp.bind(btn)))
 
         }
 

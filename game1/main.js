@@ -21,3 +21,4 @@ addEventListener('keydown', e => game1.keyDownListeners(e))
 
 addEventListener('keyup', e => game1.keyUpListeners(e))
 
+export default game1

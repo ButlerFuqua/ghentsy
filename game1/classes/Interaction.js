@@ -27,8 +27,6 @@ export default class Interaction extends Barrier {
         }
 
         if (collision) {
-
-
             window.addEventListener('keydown', this.invokeInteraction)
         } else {
             window.removeEventListener("keydown", this.invokeInteraction);
