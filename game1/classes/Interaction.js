@@ -3,10 +3,13 @@ import Barrier from './Barrier.js'
 export default class Interaction extends Barrier {
     constructor(ctx) {
         super(ctx)
+
+        this.canInteract = false
     }
 
     invokeInteraction(e) {
-        if (e.key === ' ') {
+        console.log('INTERACTING...')
+        if (e && e.key === ' ' || (e.type && e.type === 'pointerdown')) {
             alert("This will be an interaction")
         }
     }
@@ -27,9 +30,11 @@ export default class Interaction extends Barrier {
         }
 
         if (collision) {
-            window.addEventListener('keydown', this.invokeInteraction)
+            // window.addEventListener('keydown', this.invokeInteraction)
+            this.canInteract = true
         } else {
-            window.removeEventListener("keydown", this.invokeInteraction);
+            // window.removeEventListener("keydown", this.invokeInteraction)
+            this.canInteract = false
         }
 
 

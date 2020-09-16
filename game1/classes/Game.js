@@ -34,7 +34,7 @@ export default class Game {
     createInteractions(schemas) {
         schemas.forEach(schema => {
             let newInteraction = new this.Interaction(this.canvas.ctx)
-            this.interactions.push({ barrier: newInteraction, schema })
+            this.interactions.push({ barrier: newInteraction, schema, instance: newInteraction })
         })
     }
 

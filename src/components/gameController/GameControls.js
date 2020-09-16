@@ -1,4 +1,4 @@
-export default ({ colors }, { map1, player1 }) => {
+export default ({ colors }, { map1, player1, interactions }) => {
 
     const style = document.createElement('style')
     style.textContent = `
@@ -104,7 +104,10 @@ export default ({ colors }, { map1, player1 }) => {
         }
 
         actionBtnPressed(e) {
-            console.log('Action button pressed!!', this)
+            interactions.forEach(interaction => {
+                console.log(interaction.instance.canInteract)
+                if (interaction.instance.canInteract) interaction.instance.invokeInteraction(e)
+            })
         }
 
         dpadBtnDown(e) {
@@ -117,8 +120,6 @@ export default ({ colors }, { map1, player1 }) => {
 
         dpadBtnUp(e) {
             map1.moving = false
-            console.log('UP: ', this.getAttribute(`data-direction`))
-            console.log(e)
         }
 
         connectedCallback() {
