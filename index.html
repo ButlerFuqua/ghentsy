@@ -32,13 +32,10 @@
 
         main {
             width: 100vw;
-            height: 95vh;
+            height: 100vh;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             background: blue;
+            position: relative;
         }
 
         #canvasContainer {
@@ -51,6 +48,13 @@
             justify-content: center;
 
         }
+
+        #gameInputContainer {
+            position: absolute;
+            width: 100vw;
+            left: 0;
+            bottom: 0;
+        }
     </style>
 </head>
 
@@ -60,11 +64,12 @@
     </canvas-container> -->
     <main>
 
-        <div id="canvasContainer">
+        <div id="canvasContainer"></div>
+        <div id="gameInputContainer">
             <game-controls></game-controls>
+            <bottom-bar></bottom-bar>
         </div>
     </main>
-    <bottom-bar></bottom-bar>
 
 
 

@@ -9,7 +9,7 @@ export default ({ colors }) => {
     }
 
     .container {
-        height: 5vh;
+        height: 45px;
         background: ${colors.dark1}
     }
 

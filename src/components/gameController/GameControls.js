@@ -3,10 +3,6 @@ export default ({ colors }, { map1, player1, interactions }) => {
     const style = document.createElement('style')
     style.textContent = `
         #container{
-            position: absolute;
-            width: 100%;
-            left: 0;
-            bottom: 0;
             display: flex;
             justify-content: space-evenly;
 
