@@ -12,7 +12,7 @@ export default class Canvas {
         this.canvas.setAttribute('id', 'gameCanvas')
         this.canvas.style = `
             background: #ccc;
-            min-height: 100%;
+            min-width: 100%;
             width: auto;
             padding: 0;
             margin: 0;
