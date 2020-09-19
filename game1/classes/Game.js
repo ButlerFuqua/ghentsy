@@ -2,12 +2,13 @@
 
 
 export default class Game {
-    constructor(Canvas, Map, Barrier, Interaction, Player, w, h, sel) {
+    constructor(Canvas, Map, Barrier, Interaction, Player, w, h, sel, TouchEvents) {
         this.Canvas = Canvas
         this.Map = Map
         this.Barrier = Barrier
         this.Interaction = Interaction
         this.Player = Player
+        this.TouchEvents = TouchEvents
 
         this.canvas = new this.Canvas(w, h)
         this.canvas.appendCanvas(sel)

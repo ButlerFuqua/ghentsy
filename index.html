@@ -70,6 +70,19 @@
 
     <script type="module" src="/game1/main.js"></script>
     <script type="module" src="/src/components/index.js"></script>
+
+    <script type="module">
+
+        import TouchEvents from '/src/components/TouchEvents.js'
+
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Remove longPress behavior from canvas
+            TouchEvents.preventLongPressMenu('#canvasContainer')
+        });
+
+
+    </script>
 </body>
 
 </html>

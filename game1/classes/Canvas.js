@@ -17,6 +17,24 @@ export default class Canvas {
             margin: 0;
         `
 
+        // // stop long press event
+        // this.absorbEvent_ = (event) => {
+        //     var e = event || window.event;
+        //     e.preventDefault && e.preventDefault();
+        //     e.stopPropagation && e.stopPropagation();
+        //     e.cancelBubble = true;
+        //     e.returnValue = false;
+        //     return false;
+        // }
+        // this.ontouchstart = this.absorbEvent_;
+        // this.ontouchmove = this.absorbEvent_;
+        // this.ontouchend = this.absorbEvent_;
+        // this.ontouchcancel = this.absorbEvent_;
+
+
+
+
+
     }
 
     appendCanvas(selector) {

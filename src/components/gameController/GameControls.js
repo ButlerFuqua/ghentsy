@@ -122,7 +122,9 @@ export default ({ colors }, { map1, player1, interactions }) => {
                 if (interaction.instance.canInteract) interaction.instance.invokeInteraction(e)
             })
 
-            setTimeout(() => buttonNotPressed(this).bind(this), 200)
+            setTimeout(() => {
+                if (buttonNotPressed) buttonNotPressed(this)
+            }, 200)
         }
 
         dpadBtnDown(e) {
