@@ -13,6 +13,9 @@ export default ({ colors, utils, font }) => {
     h1 {
         font-size: ${font.h1Size};
     }
+    h2 {
+        font-size: ${font.h2Size};
+    }
 
 
     #container {
@@ -24,6 +27,8 @@ export default ({ colors, utils, font }) => {
         color: white;
         bottom: 10vh;
         animation: slideDown .4s forwards;
+        display: flex;
+        flex-direction: column;
     }
 
     #container.slideUp{
@@ -66,19 +71,81 @@ export default ({ colors, utils, font }) => {
         width: auto;
     }
 
+    ul {
+        padding: 1rem;
+        overflow: auto;
+    }
+
+    li {
+        display: flex;
+        border-bottom: 1px solid ${colors.lightGrey};
+        padding-bottom: 1rem;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    li img {
+        height: ${utils.iconSize};
+        width: auto;
+        margin-right: 1rem;
+    }
+
     `
+
+    const menuItems = [
+        {
+            title: 'Map',
+            icon: 'default_icon',
+            action: 'map'
+        },
+        {
+            title: 'Pack',
+            icon: 'default_icon',
+            action: 'pack'
+        },
+        {
+            title: 'Weapons',
+            icon: 'default_icon',
+            action: 'weapons'
+        },
+        {
+            title: 'Profile',
+            icon: 'default_icon',
+            action: 'profile'
+        },
+        {
+            title: 'Wallet',
+            icon: 'default_icon',
+            action: 'wallet'
+        },
+        {
+            title: 'Sign Out',
+            icon: 'default_icon',
+            action: 'sign_out'
+        },
+    ]
     const template = document.createElement('template')
     template.innerHTML = `
            <div id="container">
                <div id="titleBar">
-               <h1>Main Menu</h1>
-               <button>
-                   <img src="/src/images/default_icon.png" />
-               </button>
+                    <h1>Main Menu</h1>
+                    <button>
+                        <img src="/src/images/default_icon.png" />
+                    </button>
                </div>
+               <ul class="menuItemsContainer">
+                    ${menuItems.map(item => (`
+                        <li data-action="${item.action}">
+                            <img src="/src/images/${item.icon}.png" />
+                            <h2>${item.title}</h2>
+                        </li>
+                    `)).join('')}
+               </ul>
            </div>
         
     `
+
+
 
     class MainMenu extends HTMLElement {
         constructor() {
@@ -104,7 +171,14 @@ export default ({ colors, utils, font }) => {
             document.querySelector('main-menu').remove()
         }
 
+        itemAction(str) {
+            console.log(`From class: ${str}`)
+        }
+
         connectedCallback() {
+
+            const menuItems = Array.from(this.shadowRoot.querySelectorAll('li'))
+            menuItems.forEach(item => item.addEventListener('pointerdown', this.itemAction.bind(this, item.getAttribute('data-action'))))
 
         }
     }
