@@ -12,15 +12,15 @@ export default ({ colors }) => {
         background: ${colors.dark1};
         position: absolute;
         width: 100vw;
-        height: 100vh;
+        height: ${window.innerHeight - 45}px;
         z-index: 1;
         color: white;
         bottom: 10vh;
-        animation: slideDown .6s forwards;
+        animation: slideDown .4s forwards;
     }
 
     #container.slideUp{
-        animation: slideUp .6s forwards;
+        animation: slideUp .4s forwards;
     }
 
     @keyframes slideDown {
@@ -28,7 +28,7 @@ export default ({ colors }) => {
             bottom: 100vh;
         }
         100%{
-            bottom: 0;
+            bottom: 45px;
         }
     }
 
@@ -48,7 +48,6 @@ export default ({ colors }) => {
     template.innerHTML = `
            <div id="container">
                This is the main menu
-               <button id="closeMenuBtn">Close menu</button>
            </div>
         
     `
@@ -59,12 +58,11 @@ export default ({ colors }) => {
             this.attachShadow({ mode: 'open' })
             this.shadowRoot.appendChild(style)
             this.shadowRoot.appendChild(template.content.cloneNode(true))
+
         }
 
-        static slideDown() {
-
+        slideDown() {
             const menu = document.createElement('main-menu')
-
             document.body.prepend(menu)
         }
 
@@ -72,15 +70,13 @@ export default ({ colors }) => {
             document.querySelector('main-menu').remove()
         }
 
-        closeMenu() {
-            const menuContainer = this.shadowRoot.getElementById('container')
-            if (!menuContainer.classList.contains('slideUp')) menuContainer.classList.add('slideUp')
+        closeMenu(menu) {
+            const menuContainer = menu.shadowRoot.getElementById('container')
+            menuContainer.classList.add('slideUp')
             setTimeout(this.removeMainMenu, 600)
         }
 
         connectedCallback() {
-
-            this.shadowRoot.getElementById('closeMenuBtn').addEventListener('pointerdown', this.closeMenu.bind(this))
 
         }
 

@@ -1,6 +1,6 @@
 export default ({ colors }, MainMenu) => {
 
-    const mainMenu = MainMenu({ colors })
+    const mainMenuClass = MainMenu({ colors })
 
 
     const style = document.createElement('style')
@@ -56,10 +56,21 @@ export default ({ colors }, MainMenu) => {
             this.attachShadow({ mode: 'open' })
             this.shadowRoot.appendChild(style)
             this.shadowRoot.appendChild(template.content.cloneNode(true))
+
+            this.mainMenu
+
         }
 
         menuBtnPressed() {
-            mainMenu.slideDown()
+            const menu = document.querySelector('main-menu') || false
+
+            if (!menu) {
+                console.log('create new menu')
+                this.mainMenu = new mainMenuClass
+                this.mainMenu.slideDown()
+            } else {
+                this.mainMenu.closeMenu(menu)
+            }
 
         }
         spotsBtnPressed() {
