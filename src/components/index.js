@@ -7,6 +7,10 @@ const theme = {
         dark2: `#404040`,
         primary1: `#FFC491`,
         secondary1: `#91ECFF`
+    },
+    utils: {
+        padding1: '5px',
+        iconSize: '30px'
     }
 }
 

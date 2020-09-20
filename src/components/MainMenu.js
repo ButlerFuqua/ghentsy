@@ -1,4 +1,4 @@
-export default ({ colors }) => {
+export default ({ colors, utils }) => {
 
 
     const style = document.createElement('style')
@@ -6,6 +6,8 @@ export default ({ colors }) => {
 
     *{
         box-sizing: border-box;
+        margin:0;
+        padding:0;
     }
 
     #container {
@@ -41,13 +43,34 @@ export default ({ colors }) => {
         }
     }
 
- 
+
+    #titleBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: ${utils.padding1};
+    }
+
+    #titleBar button {
+        background: ${colors.dark1};
+        border: none;
+    }
+
+    #titleBar img {
+        height: ${utils.iconSize};
+        width: auto;
+    }
 
     `
     const template = document.createElement('template')
     template.innerHTML = `
            <div id="container">
-               This is the main menu
+               <div id="titleBar">
+               <h1>Main Menu</h1>
+               <button>
+                   <img src="/src/images/default_icon.png" />
+               </button>
+               </div>
            </div>
         
     `
@@ -66,25 +89,22 @@ export default ({ colors }) => {
             document.body.prepend(menu)
         }
 
-        removeMainMenu() {
-            document.querySelector('main-menu').remove()
-        }
-
         closeMenu(menu) {
             const menuContainer = menu.shadowRoot.getElementById('container')
             menuContainer.classList.add('slideUp')
             setTimeout(this.removeMainMenu, 600)
         }
 
+        removeMainMenu() {
+            document.querySelector('main-menu').remove()
+        }
+
         connectedCallback() {
 
         }
-
     }
 
     window.customElements.define('main-menu', MainMenu)
-
-
 
     return MainMenu
 }
