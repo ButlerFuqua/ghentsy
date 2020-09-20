@@ -1,4 +1,4 @@
-export default ({ colors, utils }) => {
+export default ({ colors, utils, font }) => {
 
 
     const style = document.createElement('style')
@@ -9,6 +9,11 @@ export default ({ colors, utils }) => {
         margin:0;
         padding:0;
     }
+
+    h1 {
+        font-size: ${font.h1Size};
+    }
+
 
     #container {
         background: ${colors.dark1};

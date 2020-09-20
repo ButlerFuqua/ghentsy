@@ -1,18 +1,6 @@
 
 import game1 from '../../game1/main.js'
-
-const theme = {
-    colors: {
-        dark1: `#2D2D2D`,
-        dark2: `#404040`,
-        primary1: `#FFC491`,
-        secondary1: `#91ECFF`
-    },
-    utils: {
-        padding1: '5px',
-        iconSize: '30px'
-    }
-}
+import { theme } from './theme.js'
 
 import CanvasContainer from './CanvasContainer.js'
 CanvasContainer(theme)

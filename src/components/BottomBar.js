@@ -1,6 +1,6 @@
-export default ({ colors, utils }, MainMenu) => {
+export default ({ colors, utils, font }, MainMenu) => {
 
-    const mainMenuClass = MainMenu({ colors, utils })
+    const mainMenuClass = MainMenu({ colors, utils, font })
 
 
     const style = document.createElement('style')
