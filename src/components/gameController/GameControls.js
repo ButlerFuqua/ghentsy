@@ -6,6 +6,9 @@ export default ({ colors }, { map1, player1, interactions }) => {
             display: flex;
             justify-content: space-evenly;
 
+
+            height: 100px;
+
         }
 
         #dpadContainer {
@@ -13,12 +16,24 @@ export default ({ colors }, { map1, player1, interactions }) => {
             display: flex;
             justify-content: center;
             align-items: center;
+
+            height: 100%;
         }
 
         #dpad {
-            width: 175px;
+            width: 109px;
             max-width: 100%;
+            height: 100%;
         }
+
+        #dpad button, #dpad img {
+            height: 100%;
+            max-height: 100%;
+        }
+
+        #dpad div {
+            height: 30%;
+        } 
 
         #dpad div#top{
             display: flex;
@@ -46,14 +61,18 @@ export default ({ colors }, { map1, player1, interactions }) => {
         #actionButtonContainer button {
             background: ${colors.primary1};
             border: none;
-            height: 80px;
-            width: 80px;
+            height: 50px;
+            width: 50px;
             border-radius: 50%;
         }
 
         #dpad button {
             background: none;
             border: none;
+        }
+
+        #dpad button img {
+            height: 40px;
         }
 
         button {
@@ -65,6 +84,8 @@ export default ({ colors }, { map1, player1, interactions }) => {
         button.highlight {
             opacity: 1;
         }
+
+        
 
     `
     const template = document.createElement('template')
@@ -135,7 +156,6 @@ export default ({ colors }, { map1, player1, interactions }) => {
 
         dpadBtnUp(e) {
             buttonNotPressed(this)
-
             map1.moving = false
         }
 

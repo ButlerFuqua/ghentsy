@@ -8,7 +8,7 @@ export default class Interaction extends Barrier {
     }
 
     invokeInteraction(e) {
-        if (e && e.key === ' ' || (e.type && e.type === 'pointerdown')) {
+        if ((e && e.key === ' ') || (e.type && e.type === 'pointerdown')) {
             alert("This will be an interaction")
         }
     }

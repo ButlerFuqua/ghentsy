@@ -16,7 +16,11 @@ CanvasContainer(theme)
 import GameControls from './gameController/GameControls.js'
 GameControls(theme, game1)
 
+import MainMenu from './MainMenu.js'
+MainMenu(theme)
+
 import BottomBar from './BottomBar.js'
-BottomBar(theme)
+BottomBar(theme, MainMenu)
+
 
 

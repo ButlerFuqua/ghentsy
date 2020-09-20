@@ -1,5 +1,4 @@
-export default ({ colors }) => {
-
+export default ({ colors }, MainMenu) => {
 
     const style = document.createElement('style')
     style.textContent = `
@@ -56,8 +55,21 @@ export default ({ colors }) => {
             this.shadowRoot.appendChild(template.content.cloneNode(true))
         }
 
-        connectedCallback() {
+        menuBtnPressed() {
+            console.log(MainMenu)
+            // document.body.prepend(<main-menu>)
+        }
+        spotsBtnPressed() {
+            console.log('view spots')
+        }
+        friendsBtnPressed() {
+            console.log('view friends')
+        }
 
+        connectedCallback() {
+            this.shadowRoot.getElementById('spotsBtn').addEventListener('pointerdown', this.spotsBtnPressed)
+            this.shadowRoot.getElementById('friendsBtn').addEventListener('pointerdown', this.friendsBtnPressed)
+            this.shadowRoot.getElementById('menuBtn').addEventListener('pointerdown', this.menuBtnPressed)
         }
 
 

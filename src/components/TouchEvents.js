@@ -5,17 +5,17 @@ export default class TouchEvents {
     // stop long press event
     static absorbEvent_(event) {
         var e = event || window.event;
-        e.preventDefault && e.preventDefault();
-        e.stopPropagation && e.stopPropagation();
-        e.cancelBubble = true;
-        e.returnValue = false;
-        return false;
+        e.preventDefault && e.preventDefault()
+        e.stopPropagation && e.stopPropagation()
+        e.cancelBubble = true
+        e.returnValue = false
+        return false
     }
     static addNodeToTouchEvents(node) {
-        node.ontouchstart = this.absorbEvent_;
-        node.ontouchmove = this.absorbEvent_;
-        node.ontouchend = this.absorbEvent_;
-        node.ontouchcancel = this.absorbEvent_;
+        node.ontouchstart = this.absorbEvent_
+        // node.ontouchmove = this.absorbEvent_
+        // node.ontouchend = this.absorbEvent_
+        // node.ontouchcancel = this.absorbEvent_
     }
 
 
