@@ -70,7 +70,6 @@ export default ({ colors }) => {
 
         removeMainMenu() {
             document.querySelector('main-menu').remove()
-            console.log(document.querySelector('main-menu'))
         }
 
         closeMenu() {
