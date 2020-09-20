@@ -38,13 +38,13 @@ export default ({ colors, utils, font }, MainMenu) => {
     template.innerHTML = `
            <div id="container">
                 <button>
-                    <img class="selectBtn" id="spotsBtn" src="/src/images/default_icon.png" />
+                    <img class="selectBtn" id="spotsBtn" src="./src/images/default_icon.png" />
                 </button>
                 <button>
-                    <img id="menuBtn" src="/src/images/start_btn.png" />
+                    <img id="menuBtn" src="./src/images/start_btn.png" />
                 </button>
                 <button>
-                    <img class="selectBtn"  id="friendsBtn" src="/src/images/default_icon.png" />
+                    <img class="selectBtn"  id="friendsBtn" src="./src/images/default_icon.png" />
                 </button>
            </div>
         

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#009578">
+    <meta name="theme-color" content="#FFC491">
 
     <title>Ghentsy</title>
     <!-- <link rel="stylesheet" href="/app/src/master.css"> -->
@@ -26,7 +26,7 @@
         html {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 100%;
             overflow: hidden;
         }
 
@@ -35,10 +35,9 @@
         }
 
         main {
-            width: 100vw;
-            height: 100vh;
+            height: 100%;
             overflow: hidden;
-            background: blue;
+            background: #333;
             position: relative;
         }
 
@@ -77,12 +76,12 @@
 
 
 
-    <script type="module" src="/game1/main.js"></script>
-    <script type="module" src="/src/components/index.js"></script>
+    <script type="module" src="./game1/main.js"></script>
+    <script type="module" src="./src/components/index.js"></script>
 
     <script type="module">
 
-        import TouchEvents from '/src/components/TouchEvents.js'
+        import TouchEvents from './src/components/TouchEvents.js'
 
 
         window.addEventListener('DOMContentLoaded', (event) => {
@@ -95,6 +94,17 @@
 
 
     </script>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="/__/firebase/7.21.0/firebase-app.js"></script> -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <script src="/__/firebase/7.21.0/firebase-analytics.js"></script> -->
+
+    <!-- Initialize Firebase -->
+    <!-- <script src="/__/firebase/init.js"></script> -->
 </body>
 
 </html>

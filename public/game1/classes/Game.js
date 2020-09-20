@@ -14,9 +14,9 @@ export default class Game {
         this.canvas.appendCanvas(sel)
         this.canvas.setBackground('#333')
 
-        this.map1 = new this.Map(this.canvas, '../game1/images/ground.png', 350, 350)
+        this.map1 = new this.Map(this.canvas, './game1/images/ground.png', 350, 350)
 
-        this.player1 = new this.Player(this.canvas, '../game1/images/female_sheet.png')
+        this.player1 = new this.Player(this.canvas, './game1/images/female_sheet.png')
 
         this.barriers = []
         this.interactions = []

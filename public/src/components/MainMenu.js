@@ -25,7 +25,7 @@ export default ({ colors, utils, font }) => {
         height: ${window.innerHeight - 45}px;
         z-index: 1;
         color: white;
-        bottom: 10vh;
+        bottom: 100%;
         animation: slideDown .4s forwards;
         display: flex;
         flex-direction: column;
@@ -37,7 +37,7 @@ export default ({ colors, utils, font }) => {
 
     @keyframes slideDown {
         0%{
-            bottom: 100vh;
+            bottom: 100%;
         }
         100%{
             bottom: 45px;
@@ -46,10 +46,10 @@ export default ({ colors, utils, font }) => {
 
     @keyframes slideUp {
         0%{
-            bottom: 0v;
+            bottom: 0;
         }
         100%{
-            bottom: 100vh;
+            bottom: 100;
         }
     }
 
@@ -130,13 +130,13 @@ export default ({ colors, utils, font }) => {
                <div id="titleBar">
                     <h1>Main Menu</h1>
                     <button>
-                        <img src="/src/images/default_icon.png" />
+                        <img src="./src/images/default_icon.png" />
                     </button>
                </div>
                <ul class="menuItemsContainer">
                     ${menuItems.map(item => (`
                         <li data-action="${item.action}">
-                            <img src="/src/images/${item.icon}.png" />
+                            <img src="./src/images/${item.icon}.png" />
                             <h2>${item.title}</h2>
                         </li>
                     `)).join('')}
