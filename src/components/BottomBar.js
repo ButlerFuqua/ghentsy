@@ -1,5 +1,8 @@
 export default ({ colors }, MainMenu) => {
 
+    const mainMenu = MainMenu({ colors })
+
+
     const style = document.createElement('style')
     style.textContent = `
 
@@ -56,8 +59,8 @@ export default ({ colors }, MainMenu) => {
         }
 
         menuBtnPressed() {
-            console.log(MainMenu)
-            // document.body.prepend(<main-menu>)
+            mainMenu.slideDown()
+
         }
         spotsBtnPressed() {
             console.log('view spots')

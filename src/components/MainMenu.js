@@ -31,17 +31,20 @@ export default ({ colors }) => {
             this.shadowRoot.appendChild(template.content.cloneNode(true))
         }
 
-
+        static slideDown() {
+            console.log('show menu')
+        }
 
         connectedCallback() {
 
         }
 
-
-
     }
 
-
     window.customElements.define('main-menu', MainMenu)
+
+
+
+    return MainMenu
 }
 
